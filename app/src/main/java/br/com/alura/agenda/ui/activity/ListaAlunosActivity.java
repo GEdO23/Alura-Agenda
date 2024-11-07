@@ -1,4 +1,4 @@
-package br.com.alura.agenda;
+package br.com.alura.agenda.ui.activity;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+import br.com.alura.agenda.R;
+
+public class ListaAlunosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Lista de alunos");
         List<String> alunos = new ArrayList<>(
                 Arrays.asList("Alex", "Fran", "Jose", "Maria", "Ana"));
-        ListView listaDeAlunos = findViewById(R.id.activity_main_lista_de_aluno);
+        ListView listaDeAlunos = findViewById(R.id.activity_lista_alunos_listview);
         listaDeAlunos.setAdapter(new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
