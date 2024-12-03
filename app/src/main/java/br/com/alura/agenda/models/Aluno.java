@@ -9,12 +9,16 @@ public class Aluno implements Serializable {
     private int id = 0;
     private String nome;
     private String telefone;
-    private  String email;
+    private String email;
 
     public Aluno(String nome, String telefone, String email) {
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
+    }
+
+    public Aluno() {
+
     }
 
     public int getId() {
@@ -53,5 +57,9 @@ public class Aluno implements Serializable {
     @Override
     public String toString() {
         return nome;
+    }
+
+    public boolean temIdValido() {
+        return id > 0;
     }
 }
