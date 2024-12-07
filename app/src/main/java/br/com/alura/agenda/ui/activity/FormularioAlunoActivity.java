@@ -12,7 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.alura.agenda.R;
-import br.com.alura.agenda.dao.AlunoDAO;
+import br.com.alura.agenda.database.AgendaDatabase;
+import br.com.alura.agenda.database.dao.AlunoDAO;
 import br.com.alura.agenda.models.Aluno;
 
 public class FormularioAlunoActivity extends AppCompatActivity {
@@ -22,13 +23,15 @@ public class FormularioAlunoActivity extends AppCompatActivity {
     private EditText campoNome;
     private EditText campoTelefone;
     private EditText campoEmail;
-    private final AlunoDAO dao = new AlunoDAO();
+    private AlunoDAO dao;
     private Aluno aluno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_aluno);
+        AgendaDatabase database = AgendaDatabase.getInstance(this);
+        dao = database.getRoomAlunoDao();
         inicializacaoDosCampos();
         carregaAluno();
     }
