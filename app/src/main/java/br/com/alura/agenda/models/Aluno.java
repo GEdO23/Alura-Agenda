@@ -13,6 +13,7 @@ public class Aluno implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id = 0;
     private String nome;
+    private String sobrenome;
     private String telefone;
     private String email;
 
@@ -35,6 +36,10 @@ public class Aluno implements Serializable {
         return nome;
     }
 
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
     public String getTelefone() {
         return telefone;
     }
@@ -49,6 +54,10 @@ public class Aluno implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
     public void setTelefone(String telefone) {
@@ -67,5 +76,9 @@ public class Aluno implements Serializable {
 
     public boolean temIdValido() {
         return id > 0;
+    }
+
+    public String getNomeCompleto() {
+        return nome + " " + sobrenome;
     }
 }
