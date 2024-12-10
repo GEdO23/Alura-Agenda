@@ -6,6 +6,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 @Entity
@@ -25,6 +26,11 @@ public class Aluno implements Serializable {
 
     public void setMomentoDeCadastro(Calendar momentoDeCadastro) {
         this.momentoDeCadastro = momentoDeCadastro;
+    }
+    
+    public String dataFormatada() {
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        return formatador.format(momentoDeCadastro.getTime());
     }
 
     @Ignore
